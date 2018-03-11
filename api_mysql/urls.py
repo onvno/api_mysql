@@ -14,9 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from django.conf.urls import url, include
+
+from api.resources import NoteResource
+from sps.resources import SpsResource
+
+note_resource = NoteResource()
+sps_resource = SpsResource()
 
 urlpatterns = [
+    # url(r'^admin/', admin.site.urls),
+    url(r'^api/', include(note_resource.urls)),
+    path('app/', include('api.urls')),
+    url(r'^link/',include(sps_resource.urls)),
     path('sps/', include('sps.urls')),
     path('admin/', admin.site.urls),
 ]
