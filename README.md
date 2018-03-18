@@ -25,7 +25,28 @@ query_terms = QUERY_TERMS
   $ python manage.py migrate XXapp   # 创建表结构
 
   # 启动
-  python manage.py runserver 3333
+  $ python manage.py runserver 3333
+  ```
+
+* wsgy.py配置服务器需要在`import os`前增加：
+
+  ```
+  # wsgi.py中添加
+  import sys
+  sys.path.append('/usr/local/lib/python3.6/site-packages')
+  sys.path.append('/usr/local/lib/python3.6')  
+  ```
+
+* 请求
+
+  ```
+  postman查看
+  ```
+
+* 部署注意`setting.py`中添加：
+
+  ```
+  ALLOWED_HOSTS = ['*']
   ```
 
   ​
