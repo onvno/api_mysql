@@ -1,4 +1,19 @@
-* tastypie需要修改源码
+#### 环境
+
+python3.x
+
+
+
+#### 依赖
+
+* django-tastypie
+
+
+
+
+#### 开发注意事项
+
+*tastypie需要修改源码*
 
 https://github.com/django-tastypie/django-tastypie/pull/1520/commits/d5887ba291d976ae29ce9b3fc2ab22094b6344db
 
@@ -16,9 +31,11 @@ else:
 query_terms = QUERY_TERMS
 ```
 
-* 启动项目
 
-  ```
+
+*需要先创建数据表*
+
+```
   # 数据表创建
   $ python manage.py migrate  #创建表结构
   $ python manage.py makemigrations XXapp #让 Django 知道我们在我们的模型有一些变更
@@ -26,9 +43,13 @@ query_terms = QUERY_TERMS
 
   # 启动
   $ python manage.py runserver 3333
-  ```
+```
 
-* wsgy.py配置服务器需要在`import os`前增加：
+
+
+#### 部署项目注意事项
+
+* wsgy.py配置服务器需要在`import os`前增加，否则会报相应的模块找不到
 
   ```
   # wsgi.py中添加
